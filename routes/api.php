@@ -46,6 +46,12 @@ use App\Http\Controllers\Api\ThongTinSanPhamApiController;
 //    Route::delete('/products/{id}', [SanPhamApiController::class, 'destroy']); // /api/products/SP0001
 //});
 
+/*
+ * api/products?sort={"Gia_SP":"asc"}&filter={"Ten_SP":"S"}&perPage=5&page=2
+ * Ví dụ API lấy danh sách sản phẩm được lấy theo giá tăng dần, trong Ten_SP có chứa "S",
+ * được chia làm 5 trang và vào trang thứ 2!
+ * */
+
 // Chưa xác thực người dùng
 Route::group(['middleware' => 'user:api'], function () {
     Route::resource('products', SanPhamApiController::class)->only(['index', 'show']);

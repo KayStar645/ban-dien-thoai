@@ -11,6 +11,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Exception;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 
 abstract class BaseCRUDApiController extends ApiController
@@ -27,47 +28,46 @@ abstract class BaseCRUDApiController extends ApiController
         $this->model = (new $this->model);
     }
 
-    public function index(Request $request): JsonResponse
-    {
-        try {
-            $models = $this->model::all();
-            return response()->json(['data' => $models], 200);
-        } catch (\Exception $e) {
-            Log::error($e);
-            return response()->json(['error' => 'Không thể tìm nạp bản ghi.'], 500);
-        }
-    }
-
 //    public function index(Request $request): JsonResponse
 //    {
 //        try {
-//            $query = $this->model->newQuery();
-//            $products = $this->getModel()::newQuery()->get();
-//
-//            // Check if filter exists
-//            if ($request->has('filter') && !empty($request->get('filter'))) {
-//                $filters = json_decode($request->get('filter'), true);
-//                foreach ($filters as $column => $value) {
-//                    $query->where($column, 'like', '%' . $value . '%');
-//                }
-//            }
-//
-//            // Check if sort exists
-//            if ($request->has('sort') && !empty($request->get('sort'))) {
-//                $sorts = json_decode($request->get('sort'), true);
-//                foreach ($sorts as $column => $direction) {
-//                    $query->orderBy($column, $direction);
-//                }
-//            }
-//
-//            $perPage = $request->has('perPage') ? intval($request->get('perPage')) : 10;
-//            $result = $query->paginate($perPage);
-//
-//            return response()->json($result);
-//        } catch (\Exception $ex) {
-//            return response()->json(['error' => $ex->getMessage()], 500);
+//            $models = $this->model::all();
+//            return response()->json(['data' => $models], 200);
+//        } catch (\Exception $e) {
+//            Log::error($e);
+//            return response()->json(['error' => 'Không thể tìm nạp bản ghi.'], 500);
 //        }
 //    }
+
+    public function index(Request $request): JsonResponse
+    {
+        try {
+            $query = $this->model->newQuery();
+
+            // Check if filter exists
+            if ($request->has('filter') && !empty($request->get('filter'))) {
+                $filters = json_decode($request->get('filter'), true);
+                foreach ($filters as $column => $value) {
+                    $query->where($column, 'like', '%' . $value . '%');
+                }
+            }
+
+            // Check if sort exists
+            if ($request->has('sort') && !empty($request->get('sort'))) {
+                $sorts = json_decode($request->get('sort'), true);
+                foreach ($sorts as $column => $direction) {
+                    $query->orderBy($column, $direction);
+                }
+            }
+
+            $perPage = $request->has('perPage') ? intval($request->get('perPage')) : 10;
+            $result = $query->paginate($perPage);
+
+            return response()->json($result);
+        } catch (\Exception $ex) {
+            return response()->json(['error' => $ex->getMessage()], 500);
+        }
+    }
 
     public function show(Request $request, $id): JsonResponse
     {

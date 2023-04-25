@@ -24,6 +24,18 @@ class SanPhamApiController extends BaseCRUDApiController
             ], 500);
         }
     }
+    public function index1(Request $request): JsonResponse
+    {
+        try {
+            return parent::index1($request);
+        } catch (\Exception $exception) {
+            return response()->json([
+                'success' => false,
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
 
     public function show(Request $request, $id): JsonResponse
     {
