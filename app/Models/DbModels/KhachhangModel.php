@@ -7,7 +7,7 @@ use App\Models\Tables\TableKhachhang;
 use App\Models\Tables\TablePhieuxuat;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class KhanhhangModel extends TableKhachhang {
+class KhachhangModel extends TableKhachhang {
 
     protected $fillable = [
         TableKhachhang::COL_MA_KH,

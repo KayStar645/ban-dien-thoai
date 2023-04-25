@@ -11,7 +11,8 @@ class AnhsanphamModel extends TableAnhsanpham {
 
     protected $fillable = [
         TableAnhsanpham::COL_ID_ANHSP,
-        TableAnhsanpham::COL_MA_SP
+        TableAnhsanpham::COL_MA_SP,
+        TableAnhsanpham::COL_ANH_URL
     ];
 
     public function sanpham()

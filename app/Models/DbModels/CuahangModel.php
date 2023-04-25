@@ -15,6 +15,10 @@ class CuahangModel extends TableCuahang {
         TableCuahang::COL_DIACHI_CH,
         TableCuahang::COL_SDT_CH,
     ];
+    protected $hidden = [
+        //self::COL_MATKHAU,
+    ];
+
 
     public function nhanViens() {
         return $this->hasMany(NhanvienModel::class,

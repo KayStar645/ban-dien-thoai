@@ -133,13 +133,13 @@ abstract class BaseCRUDApiController extends ApiController
             return response()->json(['data' => $model], 200);
         } catch (ModelNotFoundException $e) {
             Log::error($e);
-            return response()->json(['error' => 'Record not found.'], 404);
+            return response()->json(['error' => 'Không tìm thấy bản ghi.'], 404);
         } catch (ValidationException $e) {
             Log::error($e);
             return response()->json(['error' => $e->validator->errors()], 422);
         } catch (\Exception $e) {
             Log::error($e);
-            return response()->json(['error' => 'Unable to update record.'], 500);
+            return response()->json(['error' => 'Không thể cập nhật bản ghi.'], 500);
         }
     }
 

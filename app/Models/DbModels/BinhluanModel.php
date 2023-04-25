@@ -23,7 +23,7 @@ class BinhluanModel extends TableBinhluan {
     }
 
     public function khachHang() {
-        return $this->belongsTo(KhanhhangModel::class,
+        return $this->belongsTo(KhachhangModel::class,
             TableBinhluan::COL_MA_KH, TableKhachhang::COL_MA_KH);
     }
 
