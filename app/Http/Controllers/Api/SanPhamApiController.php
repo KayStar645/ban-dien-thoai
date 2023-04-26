@@ -24,17 +24,6 @@ class SanPhamApiController extends BaseCRUDApiController
             ], 500);
         }
     }
-    public function index1(Request $request): JsonResponse
-    {
-        try {
-            return parent::index1($request);
-        } catch (\Exception $exception) {
-            return response()->json([
-                'success' => false,
-                'message' => $exception->getMessage(),
-            ], 500);
-        }
-    }
 
 
     public function show(Request $request, $id): JsonResponse
@@ -77,14 +66,12 @@ class SanPhamApiController extends BaseCRUDApiController
     protected function on_save_validation(Request $request, $object = NULL): \Illuminate\Contracts\Validation\Validator|bool
     {
         $rules = [
-            TableSanpham::COL_MA_SP => 'required|string',
             TableSanpham::COL_ID_DMSP => 'required|integer',
             TableSanpham::COL_TEN_SP => 'required|string',
             TableSanpham::COL_GIA_SP => 'required|integer|min:0',
             TableSanpham::COL_SOLUONG_SP => 'required|integer|min:0',
         ];
         $messages = [
-            TableSanpham::COL_MA_SP.\request() => 'Vui lòng nhập mã sản phẩm',
             TableSanpham::COL_ID_DMSP.\request() => 'Vui lòng chọn danh mục',
             TableSanpham::COL_TEN_SP.\request() => 'Vui lòng nhập tên sản phẩm',
             TableSanpham::COL_GIA_SP.\request() => 'Vui lòng nhập giá sản phẩm',

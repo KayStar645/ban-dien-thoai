@@ -1,7 +1,7 @@
 <?php
 /**
 * This class is generated automatically. !!! Do not touch or modify
-* Last modified : 2023-04-25 02:32:46*/
+* Last modified : 2023-04-26 07:17:33*/
 
 namespace App\Models\Tables;
 
@@ -16,7 +16,7 @@ class TableSanpham extends Model
     |--------------------------------------------------------------------------
     */
     protected $table = 'sanpham';
-    protected $primaryKey = 'Ma_SP';
+    protected $primaryKey = 'ID_SP';
     public $timestamps = false;
 
     /*
@@ -32,12 +32,12 @@ class TableSanpham extends Model
 
 
     /**
-    * @type <varchar(15)>
+    * @type <int>
     * @null <NO>
     * @default <>
-    * @extra <>
+    * @extra <auto_increment>
     */
-    const COL_MA_SP = 'Ma_SP';
+    const COL_ID_SP = 'ID_SP';
 
     /**
     * @type <int>

@@ -66,11 +66,9 @@ class AnhSanPhamApiController extends BaseCRUDApiController
     protected function on_save_validation(Request $request, $object = NULL): \Illuminate\Contracts\Validation\Validator|bool
     {
         $rules = [
-            TableAnhsanpham::COL_MA_SP => 'required|string',
             TableAnhsanpham::COL_ANH_URL => 'required|string'
         ];
         $messages = [
-            TableAnhsanpham::COL_MA_SP.\request() => 'Vui lòng chọn danh mục',
             TableAnhsanpham::COL_ANH_URL.\request() => 'Vui lòng chọn hình ảnh',
         ];
         return Validator::make($request->all(), $rules, $messages);

@@ -11,12 +11,12 @@ class MausacModel extends TableMausac {
     protected $fillable = [
         TableMausac::COL_ID_MAU,
         TableMausac::COL_TENMAU,
-        TableMausac::COL_MA_SP
+        TableMausac::COL_ID_SP
     ];
 
     public function sanPham() {
         return $this->belongsTo(SanphamModel::class,
-            TableMausac::COL_MA_SP, TableSanpham::COL_MA_SP);
+            TableMausac::COL_ID_SP, TableSanpham::COL_ID_SP);
     }
 
     public $timestamps = false;

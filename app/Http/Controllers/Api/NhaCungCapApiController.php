@@ -66,13 +66,11 @@ class NhaCungCapApiController extends BaseCRUDApiController
     protected function on_save_validation(Request $request, $object = NULL): \Illuminate\Contracts\Validation\Validator|bool
     {
         $rules = [
-            TableNhacungcap::COL_MA_NCC => 'required|string',
             TableNhacungcap::COL_TEN_NCC => 'required|string',
             TableNhacungcap::COL_SDT_NCC => 'required|string',
             TableNhacungcap::COL_DIACHI_NCC => 'required|string',
         ];
         $messages = [
-            TableNhacungcap::COL_MA_NCC.\request() => 'Vui lòng nhập mã nhà cung cấp',
             TableNhacungcap::COL_TEN_NCC.\request() => 'Vui lòng nhập tên nhà cung cấp',
             TableNhacungcap::COL_SDT_NCC.\request() => 'Vui lòng nhập số điện thoại nhà cung cấp',
             TableNhacungcap::COL_DIACHI_NCC.\request() => 'Vui lòng nhập điaạ chỉ nhà cung cấp',

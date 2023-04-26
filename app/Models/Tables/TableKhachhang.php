@@ -1,10 +1,9 @@
 <?php
 /**
 * This class is generated automatically. !!! Do not touch or modify
-* Last modified : 2023-04-25 02:32:46*/
+* Last modified : 2023-04-26 07:17:33*/
 
 namespace App\Models\Tables;
-
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,7 +15,7 @@ class TableKhachhang extends Model
     |--------------------------------------------------------------------------
     */
     protected $table = 'khachhang';
-    protected $primaryKey = 'Ma_KH';
+    protected $primaryKey = 'ID_KH';
     public $timestamps = false;
 
     /*
@@ -32,12 +31,12 @@ class TableKhachhang extends Model
 
 
     /**
-    * @type <varchar(15)>
+    * @type <int>
     * @null <NO>
     * @default <>
-    * @extra <>
+    * @extra <auto_increment>
     */
-    const COL_MA_KH = 'Ma_KH';
+    const COL_ID_KH = 'ID_KH';
 
     /**
     * @type <varchar(100)>

@@ -1,9 +1,10 @@
 <?php
 /**
 * This class is generated automatically. !!! Do not touch or modify
-* Last modified : 2023-04-25 02:32:46*/
+* Last modified : 2023-04-26 07:17:33*/
 
 namespace App\Models\Tables;
+
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +16,7 @@ class TablePhieunhap extends Model
     |--------------------------------------------------------------------------
     */
     protected $table = 'phieunhap';
-    protected $primaryKey = 'Ma_PN';
+    protected $primaryKey = 'ID_PN';
     public $timestamps = false;
 
     /*
@@ -31,20 +32,20 @@ class TablePhieunhap extends Model
 
 
     /**
-    * @type <varchar(15)>
+    * @type <int>
     * @null <NO>
     * @default <>
-    * @extra <>
+    * @extra <auto_increment>
     */
-    const COL_MA_PN = 'Ma_PN';
+    const COL_ID_PN = 'ID_PN';
 
     /**
-    * @type <varchar(15)>
+    * @type <int>
     * @null <NO>
     * @default <>
     * @extra <>
     */
-    const COL_MA_NCC = 'Ma_NCC';
+    const COL_ID_NCC = 'ID_NCC';
 
     /**
     * @type <int>
@@ -69,13 +70,5 @@ class TablePhieunhap extends Model
     * @extra <>
     */
     const COL_TONGTIEN_PN = 'TongTien_PN';
-
-    /**
-    * @type <varchar(50)>
-    * @null <YES>
-    * @default <>
-    * @extra <>
-    */
-    const COL_TINHTRANG_PN = 'TinhTrang_PN';
 
 }

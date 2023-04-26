@@ -66,18 +66,16 @@ class PhieuXuatApiController extends BaseCRUDApiController
     protected function on_save_validation(Request $request, $object = NULL): \Illuminate\Contracts\Validation\Validator|bool
     {
         $rules = [
-            TablePhieuxuat::COL_MA_PX => 'required|string',
             TablePhieuxuat::COL_ID_NV => 'required|integer',
-            TablePhieuxuat::COL_MA_KH => 'required|string',
-            TablePhieuxuat::COL_NGAYXUAT => 'required|date_format:Y-m-d H:i:s',
+            TablePhieuxuat::COL_ID_KH => 'required|integer',
+            TablePhieuxuat::COL_NGAYDATHANG => 'required|date_format:Y-m-d H:i:s',
             TablePhieuxuat::COL_TONGTIEN_PX => 'required|integer|min:0',
-            TablePhieuxuat::COL_TINHTRANG_PX => 'required|string',
+            TablePhieuxuat::COL_TINHTRANG_PX => 'required|integer',
         ];
         $messages = [
-            TablePhieuxuat::COL_MA_PX.\request() => 'Vui lòng nhập mã phiếu xuất',
             TablePhieuxuat::COL_ID_NV.\request() => 'Vui lòng chọn nhân viên nhập',
-            TablePhieuxuat::COL_MA_KH.\request() => 'Vui lòng chọn khách hàng',
-            TablePhieuxuat::COL_NGAYXUAT.\request() => 'Vui lòng nhập đúng định dạng ngày:tháng:năm giờ:phút:giây',
+            TablePhieuxuat::COL_ID_KH.\request() => 'Vui lòng chọn khách hàng',
+            TablePhieuxuat::COL_NGAYDATHANG.\request() => 'Vui lòng nhập đúng định dạng ngày:tháng:năm giờ:phút:giây',
             TablePhieuxuat::COL_TONGTIEN_PX.\request() => 'Vui lòng nhập tiền là số nguyên và tối thiểu là 0',
             TablePhieuxuat::COL_TINHTRANG_PX.\request() => 'tình trạng không được để trống',
         ];

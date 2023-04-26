@@ -67,7 +67,6 @@ class KhachHangApiController extends BaseCRUDApiController
     protected function on_save_validation(Request $request, $object = NULL): \Illuminate\Contracts\Validation\Validator|bool
     {
         $rules = [
-            TableKhachhang::COL_MA_KH => 'required|string',
             TableKhachhang::COL_TEN_KH => 'required|string',
             TableKhachhang::COL_SDT_KH => 'required|string',
             TableKhachhang::COL_DIACHI_KH => 'required|string',
@@ -75,7 +74,6 @@ class KhachHangApiController extends BaseCRUDApiController
             TableKhachhang::COL_GIOITINH_KH => ['required', 'string', Rule::in(['Nam', 'Nữ'])],
         ];
         $messages = [
-            TableKhachhang::COL_MA_KH.\request() => 'Vui lòng nhập mã khách hàng',
             TableKhachhang::COL_TEN_KH.\request() => 'Vui lòng nhập họ và tên',
             TableKhachhang::COL_SDT_KH.\request() => 'Vui lòng nhập số điện thoại',
             TableKhachhang::COL_DIACHI_KH.\request() => 'Vui lòng nhập địa chỉ giao hàng',

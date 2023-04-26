@@ -67,11 +67,11 @@ class DungLuongApiController extends BaseCRUDApiController
     {
         $rules = [
             TableDungluong::COL_TEN_DL => 'required|string',
-            TableDungluong::COL_MA_SP => 'required|string',
+            TableDungluong::COL_ID_SP => 'required|integer',
         ];
         $messages = [
             TableDungluong::COL_TEN_DL.\request() => 'Vui lòng nhập dung lượng',
-            TableDungluong::COL_MA_SP.\request() => 'Vui lòng chọn nhập mã sản phẩm',
+            TableDungluong::COL_ID_SP.\request() => 'Vui lòng chọn nhập mã sản phẩm',
         ];
         return Validator::make($request->all(), $rules, $messages);
     }

@@ -11,20 +11,20 @@ class BinhluanModel extends TableBinhluan {
 
     protected $fillable = [
         TableBinhluan::COL_ID_BL,
-        TableBinhluan::COL_MA_SP,
-        TableBinhluan::COL_MA_KH,
+        TableBinhluan::COL_ID_SP,
+        TableBinhluan::COL_ID_KH,
         TableBinhluan::COL_NOIDUNG,
         TableBinhluan::COL_NGAY_BL
     ];
 
     public function sanPham() {
         return $this->belongsTo(SanphamModel::class,
-            TableBinhluan::COL_MA_SP, TableSanpham::COL_MA_SP);
+            TableBinhluan::COL_ID_SP, TableSanpham::COL_ID_SP);
     }
 
     public function khachHang() {
         return $this->belongsTo(KhachhangModel::class,
-            TableBinhluan::COL_MA_KH, TableKhachhang::COL_MA_KH);
+            TableBinhluan::COL_ID_KH, TableKhachhang::COL_ID_KH);
     }
 
     public $timestamps = false;

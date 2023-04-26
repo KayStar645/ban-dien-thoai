@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class SanphamModel extends TableSanpham {
 
     protected $fillable = [
-        TableSanpham::COL_MA_SP,
+        TableSanpham::COL_ID_SP,
         TableSanpham::COL_ID_DMSP,
         TableSanpham::COL_TEN_SP,
         TableSanpham::COL_GIA_SP,
@@ -32,43 +32,43 @@ class SanphamModel extends TableSanpham {
     public function anhs(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(AnhsanphamModel::class,
-            TableSanpham::COL_MA_SP, TableAnhsanpham::COL_MA_SP);
+            TableSanpham::COL_ID_SP, TableAnhsanpham::COL_ID_SP);
     }
 
     public function mauSacs(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(MausacModel::class,
-            TableSanpham::COL_MA_SP, TableMausac::COL_MA_SP);
+            TableSanpham::COL_ID_SP, TableMausac::COL_ID_SP);
     }
 
     public function dungLuongs(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(DungluongModel::class,
-            TableSanpham::COL_MA_SP, TableDungluong::COL_MA_SP);
+            TableSanpham::COL_ID_SP, TableDungluong::COL_ID_SP);
     }
 
     public function chiTietPhieuXuats(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(ChitietphieuxuatModel::class,
-            TableSanpham::COL_MA_SP, TableChitietphieuxuat::COL_MA_SP);
+            TableSanpham::COL_ID_SP, TableChitietphieuxuat::COL_ID_SP);
     }
 
     public function chiTietPhieuNhaps(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(ChitietphieunhapModel::class,
-            TableSanpham::COL_MA_SP, TableChitietphieunhap::COL_MA_SP);
+            TableSanpham::COL_ID_SP, TableChitietphieunhap::COL_ID_SP);
     }
 
     public function binhLuans(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(BinhluanModel::class,
-            TableSanpham::COL_MA_SP, TableBinhluan::COL_MA_SP);
+            TableSanpham::COL_ID_SP, TableBinhluan::COL_ID_SP);
     }
 
     public function thongTinSanPhams(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(ThongtinsanphamModel::class,
-            TableSanpham::COL_MA_SP, TableThongtinsanpham::COL_MA_SP);
+            TableSanpham::COL_ID_SP, TableThongtinsanpham::COL_ID_SP);
     }
 
     protected $keyType = 'string';

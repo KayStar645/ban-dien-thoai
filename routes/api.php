@@ -81,7 +81,7 @@ Route::group(['middleware' => 'admin:api'], function () {
     Route::resource('shops', CuaHangApiController::class);
     Route::resource('product_portfolios', DanhMucSanPhamApiController::class);
     Route::resource('capacitys', DungLuongApiController::class);
-    Route::resource('customers', KhachHangApiController::class); // Thêm khách hàng lỗi
+    Route::resource('customers', KhachHangApiController::class);
     Route::resource('colors', MauSacApiController::class);
     Route::resource('suppliers', NhaCungCapApiController::class);
     Route::resource('staffs', NhanVienApiController::class);

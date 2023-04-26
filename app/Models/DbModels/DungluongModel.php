@@ -11,12 +11,12 @@ class DungluongModel extends TableDungluong {
     protected $fillable = [
         TableDungluong::COL_ID_DL,
         TableDungluong::COL_TEN_DL,
-        TableDungluong::COL_MA_SP,
+        TableDungluong::COL_ID_SP,
     ];
 
     public function sanPhams() {
         return $this->hasMany(SanphamModel::class,
-            TableDungluong::COL_MA_SP, TableSanpham::COL_MA_SP);
+            TableDungluong::COL_ID_SP, TableSanpham::COL_ID_SP);
     }
 
     public $timestamps = false;

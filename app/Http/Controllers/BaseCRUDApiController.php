@@ -28,17 +28,6 @@ abstract class BaseCRUDApiController extends ApiController
         $this->model = (new $this->model);
     }
 
-//    public function index(Request $request): JsonResponse
-//    {
-//        try {
-//            $models = $this->model::all();
-//            return response()->json(['data' => $models], 200);
-//        } catch (\Exception $e) {
-//            Log::error($e);
-//            return response()->json(['error' => 'Không thể tìm nạp bản ghi.'], 500);
-//        }
-//    }
-
     public function index(Request $request): JsonResponse
     {
         try {
@@ -64,8 +53,11 @@ abstract class BaseCRUDApiController extends ApiController
             $result = $query->paginate($perPage);
 
             return response()->json($result);
-        } catch (\Exception $ex) {
-            return response()->json(['error' => $ex->getMessage()], 500);
+        } catch (\Exception $ex) {;
+            return response()->json([
+                'success' => false,
+                'message' => $ex->getMessage(),
+            ], 500);
         }
     }
 
@@ -79,7 +71,7 @@ abstract class BaseCRUDApiController extends ApiController
             return response()->json(['error' => 'Không tìm thấy bản ghi.'], 404);
         } catch (\Exception $e) {
             Log::error($e);
-            return response()->json(['error' => 'Không thể tìm nạp bản ghi.'], 500);
+            return response()->json(['error' => $e->getMessage()], 500);
         }
     }
 
@@ -139,7 +131,10 @@ abstract class BaseCRUDApiController extends ApiController
             return response()->json(['error' => $e->validator->errors()], 422);
         } catch (\Exception $e) {
             Log::error($e);
-            return response()->json(['error' => 'Không thể cập nhật bản ghi.'], 500);
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ], 500);
         }
     }
 

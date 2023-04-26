@@ -66,11 +66,11 @@ class MauSacApiController extends BaseCRUDApiController
     {
         $rules = [
             TableMausac::COL_TENMAU => 'required|string',
-            TableMausac::COL_MA_SP => 'required|string',
+            TableMausac::COL_ID_SP => 'required|integer',
         ];
         $messages = [
             TableMausac::COL_TENMAU.\request() => 'Vui lòng nhập tên màu sắc',
-            TableMausac::COL_MA_SP.\request() => 'Vui lòng chọn mã sản phẩm',
+            TableMausac::COL_ID_SP.\request() => 'Vui lòng chọn mã sản phẩm',
         ];
         return Validator::make($request->all(), $rules, $messages);
     }

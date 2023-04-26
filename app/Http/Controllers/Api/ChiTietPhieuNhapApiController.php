@@ -66,14 +66,14 @@ class ChiTietPhieuNhapApiController extends BaseCRUDApiController
     protected function on_save_validation(Request $request, $object = NULL): \Illuminate\Contracts\Validation\Validator|bool
     {
         $rules = [
-            TableChitietphieunhap::COL_MA_PN => 'required|string',
-            TableChitietphieunhap::COL_MA_SP => 'required|string',
-            TableChitietphieunhap::COL_SOLUONGNHAP => 'required|number|min:0',
-            TableChitietphieunhap::COL_GIANHAP => 'required|number|min:0',
+            TableChitietphieunhap::COL_ID_PN => 'required|integer',
+            TableChitietphieunhap::COL_ID_SP => 'required|integer',
+            TableChitietphieunhap::COL_SOLUONGNHAP => 'required|integer|min:0',
+            TableChitietphieunhap::COL_GIANHAP => 'required|integer|min:0',
         ];
         $messages = [
-            TableChitietphieunhap::COL_MA_PN.\request() => 'Vui lòng chọn mã phiếu nhập',
-            TableChitietphieunhap::COL_MA_SP.\request() => 'Vui lòng chọn mã sản phẩm',
+            TableChitietphieunhap::COL_ID_PN.\request() => 'Vui lòng chọn mã phiếu nhập',
+            TableChitietphieunhap::COL_ID_SP.\request() => 'Vui lòng chọn mã sản phẩm',
             TableChitietphieunhap::COL_SOLUONGNHAP.\request() => 'Vui lòng nhập số lượng nhập',
             TableChitietphieunhap::COL_GIANHAP.\request() => 'Vui lòng nhập giá nhập',
         ];

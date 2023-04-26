@@ -1,7 +1,7 @@
 <?php
 /**
 * This class is generated automatically. !!! Do not touch or modify
-* Last modified : 2023-04-25 02:32:46*/
+* Last modified : 2023-04-26 07:17:33*/
 
 namespace App\Models\Tables;
 
@@ -19,7 +19,7 @@ class TableChitietphieuxuat extends Model
 
     public $incrementing = false;
     protected $table = 'chitietphieuxuat';
-    protected $primaryKey = ['Ma_PX', 'Ma_SP'];
+    protected $primaryKey = ['ID_PX', 'ID_SP'];
     public $timestamps = false;
 
     /*
@@ -35,20 +35,20 @@ class TableChitietphieuxuat extends Model
 
 
     /**
-    * @type <varchar(15)>
+    * @type <int>
     * @null <NO>
     * @default <>
     * @extra <>
     */
-    const COL_MA_PX = 'Ma_PX';
+    const COL_ID_PX = 'ID_PX';
 
     /**
-    * @type <varchar(15)>
+    * @type <int>
     * @null <NO>
     * @default <>
     * @extra <>
     */
-    const COL_MA_SP = 'Ma_SP';
+    const COL_ID_SP = 'ID_SP';
 
     /**
     * @type <int>
@@ -57,5 +57,13 @@ class TableChitietphieuxuat extends Model
     * @extra <>
     */
     const COL_SOLUONGXUAT = 'SoLuongXuat';
+
+    /**
+    * @type <datetime>
+    * @null <YES>
+    * @default <>
+    * @extra <>
+    */
+    const COL_NGAYXUATHANG = 'NgayXuatHang';
 
 }

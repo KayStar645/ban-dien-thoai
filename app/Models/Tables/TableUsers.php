@@ -8,16 +8,15 @@ namespace App\Models\Tables;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TableNhacungcap extends Model
+class TableUsers extends Model
 {
     /*
     |--------------------------------------------------------------------------
     | PROTECTED
     |--------------------------------------------------------------------------
     */
-    protected $table = 'nhacungcap';
-    protected $primaryKey = 'ID_NCC';
-    public $timestamps = false;
+    protected $table = 'users';
+    protected $primaryKey = 'id';
 
     /*
     |--------------------------------------------------------------------------
@@ -28,16 +27,48 @@ class TableNhacungcap extends Model
     /**
     * @type <string>
     */
-    const _tableName = 'nhacungcap';
+    const _tableName = 'users';
 
 
     /**
-    * @type <int>
+    * @type <bigint unsigned>
     * @null <NO>
     * @default <>
     * @extra <auto_increment>
     */
-    const COL_ID_NCC = 'ID_NCC';
+    const COL_ID = 'id';
+
+    /**
+    * @type <varchar(255)>
+    * @null <NO>
+    * @default <>
+    * @extra <>
+    */
+    const COL_NAME = 'name';
+
+    /**
+    * @type <varchar(255)>
+    * @null <NO>
+    * @default <>
+    * @extra <>
+    */
+    const COL_EMAIL = 'email';
+
+    /**
+    * @type <timestamp>
+    * @null <YES>
+    * @default <>
+    * @extra <>
+    */
+    const COL_EMAIL_VERIFIED_AT = 'email_verified_at';
+
+    /**
+    * @type <varchar(255)>
+    * @null <NO>
+    * @default <>
+    * @extra <>
+    */
+    const COL_PASSWORD = 'password';
 
     /**
     * @type <varchar(100)>
@@ -45,22 +76,22 @@ class TableNhacungcap extends Model
     * @default <>
     * @extra <>
     */
-    const COL_TEN_NCC = 'Ten_NCC';
+    const COL_REMEMBER_TOKEN = 'remember_token';
 
     /**
-    * @type <varchar(15)>
+    * @type <timestamp>
     * @null <YES>
     * @default <>
     * @extra <>
     */
-    const COL_SDT_NCC = 'SDT_NCC';
+    const COL_CREATED_AT = 'created_at';
 
     /**
-    * @type <varchar(100)>
+    * @type <timestamp>
     * @null <YES>
     * @default <>
     * @extra <>
     */
-    const COL_DIACHI_NCC = 'DiaChi_NCC';
+    const COL_UPDATED_AT = 'updated_at';
 
 }

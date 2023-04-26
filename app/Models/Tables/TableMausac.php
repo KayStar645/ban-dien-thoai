@@ -1,10 +1,9 @@
 <?php
 /**
 * This class is generated automatically. !!! Do not touch or modify
-* Last modified : 2023-04-25 02:32:46*/
+* Last modified : 2023-04-26 07:17:33*/
 
 namespace App\Models\Tables;
-
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -48,11 +47,11 @@ class TableMausac extends Model
     const COL_TENMAU = 'TenMau';
 
     /**
-    * @type <varchar(15)>
+    * @type <int>
     * @null <NO>
     * @default <>
     * @extra <>
     */
-    const COL_MA_SP = 'Ma_SP';
+    const COL_ID_SP = 'ID_SP';
 
 }

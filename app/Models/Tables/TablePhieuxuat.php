@@ -1,7 +1,7 @@
 <?php
 /**
 * This class is generated automatically. !!! Do not touch or modify
-* Last modified : 2023-04-25 02:32:46*/
+* Last modified : 2023-04-26 07:17:33*/
 
 namespace App\Models\Tables;
 
@@ -16,7 +16,7 @@ class TablePhieuxuat extends Model
     |--------------------------------------------------------------------------
     */
     protected $table = 'phieuxuat';
-    protected $primaryKey = 'Ma_PX';
+    protected $primaryKey = 'ID_PX';
     public $timestamps = false;
 
     /*
@@ -32,12 +32,12 @@ class TablePhieuxuat extends Model
 
 
     /**
-    * @type <varchar(15)>
+    * @type <int>
     * @null <NO>
     * @default <>
-    * @extra <>
+    * @extra <auto_increment>
     */
-    const COL_MA_PX = 'Ma_PX';
+    const COL_ID_PX = 'ID_PX';
 
     /**
     * @type <int>
@@ -48,12 +48,12 @@ class TablePhieuxuat extends Model
     const COL_ID_NV = 'ID_NV';
 
     /**
-    * @type <varchar(15)>
+    * @type <int>
     * @null <NO>
     * @default <>
     * @extra <>
     */
-    const COL_MA_KH = 'Ma_KH';
+    const COL_ID_KH = 'ID_KH';
 
     /**
     * @type <datetime>
@@ -61,7 +61,7 @@ class TablePhieuxuat extends Model
     * @default <>
     * @extra <>
     */
-    const COL_NGAYXUAT = 'NgayXuat';
+    const COL_NGAYDATHANG = 'NgayDatHang';
 
     /**
     * @type <int>
@@ -72,7 +72,7 @@ class TablePhieuxuat extends Model
     const COL_TONGTIEN_PX = 'TongTien_PX';
 
     /**
-    * @type <varchar(50)>
+    * @type <int>
     * @null <YES>
     * @default <>
     * @extra <>

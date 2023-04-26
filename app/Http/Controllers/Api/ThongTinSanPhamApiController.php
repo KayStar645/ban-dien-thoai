@@ -65,12 +65,12 @@ class ThongTinSanPhamApiController extends BaseCRUDApiController
     protected function on_save_validation(Request $request, $object = NULL): \Illuminate\Contracts\Validation\Validator|bool
     {
         $rules = [
-            TableThongtinsanpham::COL_MA_SP => 'required|string',
+            TableThongtinsanpham::COL_ID_SP => 'required|integer',
             TableThongtinsanpham::COL_THONGTIN => 'required|string',
             TableThongtinsanpham::COL_MOTA_SP => 'required|string',
         ];
         $messages = [
-            TableThongtinsanpham::COL_MA_SP.\request() => 'Vui lòng nhập mã thông tin',
+            TableThongtinsanpham::COL_ID_SP.\request() => 'Vui lòng nhập mã thông tin',
             TableThongtinsanpham::COL_THONGTIN.\request() => 'Vui lòng nhập thông tin',
             TableThongtinsanpham::COL_MOTA_SP.\request() => 'Vui lòng nhập mô tả',
         ];

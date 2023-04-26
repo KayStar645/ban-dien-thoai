@@ -11,17 +11,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class PhieunhapModel extends TablePhieunhap {
 
     protected $fillable = [
-        TablePhieunhap::COL_MA_PN,
-        TablePhieunhap::COL_MA_NCC,
+        TablePhieunhap::COL_ID_PN,
+        TablePhieunhap::COL_ID_NCC,
         TablePhieunhap::COL_ID_NV,
         TablePhieunhap::COL_NGAYNHAP,
-        TablePhieunhap::COL_TONGTIEN_PN,
-        TablePhieunhap::COL_TINHTRANG_PN
+        TablePhieunhap::COL_TONGTIEN_PN
     ];
 
     public function nhaCungCap() {
         return $this->belongsTo(NhacungcapModel::class,
-            TablePhieunhap::COL_MA_NCC, TableNhacungcap::COL_MA_NCC);
+            TablePhieunhap::COL_ID_NCC, TableNhacungcap::COL_ID_NCC);
     }
 
     public function nhanVien() {
@@ -31,7 +30,7 @@ class PhieunhapModel extends TablePhieunhap {
 
     public function chiTietPhieuNhaps() {
         return $this->hasMany(ChitietphieunhapModel::class,
-            TablePhieunhap::COL_MA_PN, TableChitietphieunhap::COL_MA_PN);
+            TablePhieunhap::COL_ID_PN, TableChitietphieunhap::COL_ID_PN);
     }
 
     protected $keyType = 'string';

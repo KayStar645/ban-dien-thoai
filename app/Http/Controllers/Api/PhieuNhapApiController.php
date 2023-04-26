@@ -65,20 +65,16 @@ class PhieuNhapApiController extends BaseCRUDApiController
     protected function on_save_validation(Request $request, $object = NULL): \Illuminate\Contracts\Validation\Validator|bool
     {
         $rules = [
-            TablePhieunhap::COL_MA_PN => 'required|string',
-            TablePhieunhap::COL_MA_NCC => 'required|string',
+            TablePhieunhap::COL_ID_NCC => 'required|integer',
             TablePhieunhap::COL_ID_NV => 'required|integer',
             TablePhieunhap::COL_NGAYNHAP => 'required|date_format:Y-m-d H:i:s',
             TablePhieunhap::COL_TONGTIEN_PN => 'required|integer|min:0',
-            TablePhieunhap::COL_TINHTRANG_PN => 'required|string',
         ];
         $messages = [
-            TablePhieunhap::COL_MA_PN.\request() => 'Vui lòng chọn mã phiếu nhập',
-            TablePhieunhap::COL_MA_NCC.\request() => 'Vui lòng chọn nhà cung cấp',
+            TablePhieunhap::COL_ID_NCC.\request() => 'Vui lòng chọn nhà cung cấp',
             TablePhieunhap::COL_ID_NV.\request() => 'Vui lòng chọn nhân viên nhập',
             TablePhieunhap::COL_NGAYNHAP.\request() => 'Vui lòng nhập đúng định dạng ngày:tháng:năm giờ:phút:giây',
             TablePhieunhap::COL_TONGTIEN_PN.\request() => 'Vui lòng nhập tiền là số nguyên và tối thiểu là 0',
-            TablePhieunhap::COL_TINHTRANG_PN.\request() => 'tình trạng không được để trống',
         ];
         return Validator::make($request->all(), $rules, $messages);
     }
