@@ -14,7 +14,7 @@ class NhaCungCapApiController extends BaseCRUDApiController
 {
     protected $model = NhacungcapModel::class;
 
-    protected function on_save_validation(Request $request, $object = NULL): \Illuminate\Contracts\Validation\Validator|bool
+    protected function on_save_validation(Request $request, $object = NULL)
     {
         $rules = [
             TableNhacungcap::COL_TEN_NCC => 'required|string',

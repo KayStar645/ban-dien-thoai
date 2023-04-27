@@ -14,8 +14,8 @@ class DungluongModel extends TableDungluong {
         TableDungluong::COL_ID_SP,
     ];
 
-    public function sanPhams() {
-        return $this->hasMany(SanphamModel::class,
+    public function sanPham() {
+        return $this->belongsTo(SanphamModel::class,
             TableDungluong::COL_ID_SP, TableSanpham::COL_ID_SP);
     }
 

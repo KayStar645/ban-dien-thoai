@@ -73,7 +73,7 @@ Route::group(['middleware' => 'user:api'], function () {
 
 // Chưa xác thực người dùng
 Route::group(['middleware' => 'admin:api'], function () {
-    Route::resource('san-pham', SanPhamApiController::class);
+    Route::resource('san-pham', SanPhamApiController::class)->middleware('admin');
     Route::resource('hinh-anh', AnhSanPhamApiController::class);
     Route::resource('binh-luan', AnhSanPhamApiController::class);
     Route::resource('chi-tiet-phieu-nhap', ChiTietPhieuNhapApiController::class);
