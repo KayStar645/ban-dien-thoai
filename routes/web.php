@@ -13,9 +13,13 @@ use App\Http\Controllers\User\SanPhamController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//
+//Route::get('/san-pham', [SanPhamController::class, 'index']);
+//Route::get('/san-pham-2', [SanPhamController::class, 'getAll']);
 
-Route::get('/san-pham', [SanPhamController::class, 'index']);
-Route::get('/san-pham-2', [SanPhamController::class, 'getAll']);
+Route::get('{any}', function () {
+    return view('app');
+})->where('any', '.*');

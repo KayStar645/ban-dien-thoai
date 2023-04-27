@@ -54,39 +54,39 @@ use App\Http\Controllers\Api\ThongTinSanPhamApiController;
 
 // Chưa xác thực người dùng
 Route::group(['middleware' => 'user:api'], function () {
-    Route::resource('products', SanPhamApiController::class)->only(['index', 'show']);
-    Route::resource('images', AnhSanPhamApiController::class)->only(['index', 'show']);
-    Route::resource('comments', BinhLuanApiController::class)->only(['index', 'show']);
-    Route::resource('receipt_details', ChiTietPhieuNhapApiController::class)->only(['index', 'show']);
-    Route::resource('export_details', ChiTietPhieuXuatApiController::class)->only(['index', 'show']);
-    Route::resource('shops', CuaHangApiController::class)->only(['index', 'show']);
-    Route::resource('product_portfolios', DanhMucSanPhamApiController::class)->only(['index', 'show']);
-    Route::resource('capacitys', DungLuongApiController::class)->only(['index', 'show']);
-    Route::resource('customers', KhachHangApiController::class)->only(['index', 'show']);
-    Route::resource('colors', MauSacApiController::class)->only(['index', 'show']);
-    Route::resource('suppliers', NhaCungCapApiController::class)->only(['index', 'show']);
-    Route::resource('staffs', NhanVienApiController::class)->only(['index', 'show']);
-    Route::resource('receipts', PhieuNhapApiController::class)->only(['index', 'show']);
-    Route::resource('exports', PhieuXuatApiController::class)->only(['index', 'show']);
-    Route::resource('product_infos', ThongTinSanPhamApiController::class)->only(['index', 'show']);
+    Route::resource('san-pham', SanPhamApiController::class)->only(['index', 'show']);
+    Route::resource('hinh-anh', AnhSanPhamApiController::class)->only(['index', 'show']);
+    Route::resource('binh-luan', BinhLuanApiController::class)->only(['index', 'show']);
+    Route::resource('chi-tiet-phieu-nhap', ChiTietPhieuNhapApiController::class)->only(['index', 'show']);
+    Route::resource('chi-tiet-phieu-xuat', ChiTietPhieuXuatApiController::class)->only(['index', 'show']);
+    Route::resource('cua-hang', CuaHangApiController::class)->only(['index', 'show']);
+    Route::resource('danh-muc-san-pham', DanhMucSanPhamApiController::class)->only(['index', 'show']);
+    Route::resource('dung-luong', DungLuongApiController::class)->only(['index', 'show']);
+    Route::resource('khach-hang', KhachHangApiController::class)->only(['index', 'show']);
+    Route::resource('mau-sac', MauSacApiController::class)->only(['index', 'show']);
+    Route::resource('nha-cung-cap', NhaCungCapApiController::class)->only(['index', 'show']);
+    Route::resource('nhan-vien', NhanVienApiController::class)->only(['index', 'show']);
+    Route::resource('phieu-nhap', PhieuNhapApiController::class)->only(['index', 'show']);
+    Route::resource('phieu-xuat', PhieuXuatApiController::class)->only(['index', 'show']);
+    Route::resource('thong-tin-san-pham', ThongTinSanPhamApiController::class)->only(['index', 'show']);
 });
 
 // Chưa xác thực người dùng
 Route::group(['middleware' => 'admin:api'], function () {
-    Route::resource('products', SanPhamApiController::class);
-    Route::resource('images', AnhSanPhamApiController::class);
-    Route::resource('comments', AnhSanPhamApiController::class);
-    Route::resource('receipt_details', ChiTietPhieuNhapApiController::class);
-    Route::resource('export_details', ChiTietPhieuXuatApiController::class);
-    Route::resource('shops', CuaHangApiController::class);
-    Route::resource('product_portfolios', DanhMucSanPhamApiController::class);
-    Route::resource('capacitys', DungLuongApiController::class);
-    Route::resource('customers', KhachHangApiController::class);
-    Route::resource('colors', MauSacApiController::class);
-    Route::resource('suppliers', NhaCungCapApiController::class);
-    Route::resource('staffs', NhanVienApiController::class);
-    Route::resource('receipts', PhieuNhapApiController::class);
-    Route::resource('exports', PhieuXuatApiController::class);
-    Route::resource('product_infos', ThongTinSanPhamApiController::class);
+    Route::resource('san-pham', SanPhamApiController::class);
+    Route::resource('hinh-anh', AnhSanPhamApiController::class);
+    Route::resource('binh-luan', AnhSanPhamApiController::class);
+    Route::resource('chi-tiet-phieu-nhap', ChiTietPhieuNhapApiController::class);
+    Route::resource('chi-tiet-phieu-xuat', ChiTietPhieuXuatApiController::class);
+    Route::resource('cua-hang', CuaHangApiController::class);
+    Route::resource('danh-muc-san-pham', DanhMucSanPhamApiController::class);
+    Route::resource('dung-luong', DungLuongApiController::class);
+    Route::resource('khach-hang', KhachHangApiController::class);
+    Route::resource('mau-sac', MauSacApiController::class);
+    Route::resource('nha-cung-cap', NhaCungCapApiController::class);
+    Route::resource('nhan-vien', NhanVienApiController::class);
+    Route::resource('phieu-nhap', PhieuNhapApiController::class);
+    Route::resource('phieu-xuat', PhieuXuatApiController::class);
+    Route::resource('thong-tin-san-pham', ThongTinSanPhamApiController::class);
 });
 

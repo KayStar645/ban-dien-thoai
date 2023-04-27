@@ -31,13 +31,13 @@ abstract class BaseCRUDApiController extends ApiController
     public function index(Request $request): JsonResponse
     {
         try {
-            $query = $this->model->newQuery();
+            $data = $this->model->newQuery();
 
             // Check if filter exists
             if ($request->has('filter') && !empty($request->get('filter'))) {
                 $filters = json_decode($request->get('filter'), true);
                 foreach ($filters as $column => $value) {
-                    $query->where($column, 'like', '%' . $value . '%');
+                    $data->where($column, 'like', '%' . $value . '%');
                 }
             }
 
@@ -45,12 +45,12 @@ abstract class BaseCRUDApiController extends ApiController
             if ($request->has('sort') && !empty($request->get('sort'))) {
                 $sorts = json_decode($request->get('sort'), true);
                 foreach ($sorts as $column => $direction) {
-                    $query->orderBy($column, $direction);
+                    $data->orderBy($column, $direction);
                 }
             }
 
             $perPage = $request->has('perPage') ? intval($request->get('perPage')) : 10;
-            $result = $query->paginate($perPage);
+            $result = $data->paginate($perPage);
 
             return response()->json($result);
         } catch (\Exception $ex) {;
@@ -90,9 +90,6 @@ abstract class BaseCRUDApiController extends ApiController
             $data = $validator->validated();
 
             $model = $this->model::create($data);
-
-//            $id = $model->getAttribute($this->model->primaryKey); // Lấy ID của object vừa tạo
-//            $a = $model->primaryKey;
 
             return response()->json(['data' => $model], 201);
         } catch (ValidationException $e) {
