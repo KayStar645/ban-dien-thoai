@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tables\TableSanpham;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Exception;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 
 abstract class BaseCRUDApiController extends ApiController
@@ -27,6 +24,7 @@ abstract class BaseCRUDApiController extends ApiController
     {
         $this->model = (new $this->model);
     }
+
 
     public function index(Request $request): JsonResponse
     {
@@ -52,7 +50,7 @@ abstract class BaseCRUDApiController extends ApiController
             $perPage = $request->has('perPage') ? intval($request->get('perPage')) : 10;
             $result = $data->paginate($perPage);
 
-            return response()->json($result);
+            return response()->json($result, 206);
         } catch (\Exception $ex) {;
             return response()->json([
                 'success' => false,
@@ -64,7 +62,7 @@ abstract class BaseCRUDApiController extends ApiController
     public function show(Request $request, $id): JsonResponse
     {
         try {
-            $model = $this->model::findOrFail($id);
+            $model = $this->model::where($this->model->getKeyName(), $id)->first();
             return response()->json(['data' => $model], 200);
         } catch (ModelNotFoundException $e) {
             Log::error($e);

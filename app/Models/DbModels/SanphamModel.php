@@ -71,7 +71,7 @@ class SanphamModel extends TableSanpham {
             TableSanpham::COL_ID_SP, TableThongtinsanpham::COL_ID_SP);
     }
 
-    protected $keyType = 'string';
+
     public $timestamps = false;
     use HasFactory;
 }

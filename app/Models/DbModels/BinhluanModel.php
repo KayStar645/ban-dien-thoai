@@ -22,7 +22,8 @@ class BinhluanModel extends TableBinhluan {
             TableBinhluan::COL_ID_SP, TableSanpham::COL_ID_SP);
     }
 
-    public function khachHang() {
+    public function khachHang(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
         return $this->belongsTo(KhachhangModel::class,
             TableBinhluan::COL_ID_KH, TableKhachhang::COL_ID_KH);
     }
